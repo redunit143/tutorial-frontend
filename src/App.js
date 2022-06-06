@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+import StateView from './components/StateView'; 
+
 function App() {
   return (
     <div className="App">
@@ -17,9 +19,11 @@ function App() {
         >
           Learn React
         </a>
+		<StateView />
       </header>
     </div>
   );
 }
+
 
 export default App;
