@@ -8,16 +8,26 @@ import { Provider } from 'react-redux';
 
 import myReducers from './reducers';
 
+import { applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+
+//const applyMiddleware = redux.applyMiddleware;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const myStore = createStore(
-	myReducers,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  myReducers,
+  //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+
+  composeEnhancers(
+    applyMiddleware(thunk)
+  )
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-  	<Provider store={myStore}>
-    	<App />
+    <Provider store={myStore}>
+      <App />
     </Provider>
   </React.StrictMode>
 );

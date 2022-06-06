@@ -4,7 +4,7 @@ import todoReducer from './todoReducer';
 
 
 const myReducers = combineReducers({
-	todoReducer
+  todoReducer
 });
 
 export default myReducers;
